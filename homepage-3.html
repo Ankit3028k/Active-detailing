@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AutoDetail - Car Detailing, Shop & Repair HTML Template</title>
+    <link rel="icon" href="images/favicon.png" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="AutoDetail - Car Detailing, Shop & Repair HTML Template" name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="css/colors/scheme-1.css" rel="stylesheet" type="text/css">
+    <link href="css/custom-swiper-1.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Top welcome bar */
+        .top-bar {
+            background-color: #ce3e42;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: clamp(12px, 3vw, 14px);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000;
+            padding: clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Logo Styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            border: 5px solid #ce3e42;
+            padding-left: clamp(10px, 2vw, 17px);
+            background: black;
+            height: clamp(100px, 20vw, 158px);
+            margin: clamp(-80px, -10vw, -99px) 0 clamp(-15px, -2vw, -19px) clamp(-20px, -3vw, -31px);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo img {
+            width: clamp(150px, 25vw, 250px);
+            margin-right: clamp(5px, 1vw, 10px);
+        }
+
+        .logo-text {
+            color: white;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: clamp(14px, 2vw, 16px);
+        }
+
+        .logo-text strong {
+            font-size: clamp(16px, 3vw, 20px);
+        }
+
+        /* Nav Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: clamp(10px, 2vw, 20px);
+            margin: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #ce3e42;
+        }
+
+        /* Right side - social + call */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+        }
+
+        /* Social Icons */
+        .social-icons a {
+            color: white;
+            font-size: clamp(14px, 2vw, 16px);
+            margin: 0 clamp(3px, 1vw, 5px);
+            background: black;
+            padding: clamp(6px, 1.5vw, 8px);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ce3e42;
+        }
+
+        /* Call Button */
+        .call-btn {
+            background-color: #ce3e42;
+            color: white;
+            padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 16px);
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: clamp(14px, 2vw, 16px);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: clamp(5px, 1vw, 8px);
+            transition: background 0.3s;
+        }
+
+        .call-btn:hover {
+            background-color: #a93134;
+        }
+
+        /* Hamburger Menu */
+        /* .hamburger {
+            display: none;
+            font-size: clamp(20px, 4vw, 24px);
+            color: white;
+            cursor: pointer;
+        } */
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .navbar-container {
+                max-width: 100%;
+                padding: 0 clamp(10px, 2vw, 20px);
+            }
+
+            .logo {
+                height: clamp(90px, 15vw, 120px);
+                margin: clamp(-60px, -8vw, -80px) 0 clamp(-10px, -1.5vw, -15px) clamp(-15px, -2vw, -20px);
+            }
+
+            .logo img {
+                width: clamp(120px, 20vw, 200px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin: 0;
+                height: clamp(80px, 15vw, 100px);
+                padding: clamp(5px, 2vw, 10px);
+                border: none;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo img {
+                width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: clamp(5px, 2vw, 10px) 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-right {
+                display: none;
+                width: 100%;
+                justify-content: center;
+                padding: clamp(5px, 2vw, 10px) 0;
+            }
+
+            .nav-right.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: clamp(15px, 3vw, 20px);
+                right: clamp(15px, 3vw, 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar {
+                font-size: clamp(10px, 2.5vw, 12px);
+                padding: clamp(4px, 1.5vw, 6px) 0;
+            }
+
+            .logo img {
+                width: 100%;
+            }
+
+            .call-btn {
+                padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+                font-size: clamp(12px, 2vw, 14px);
+            }
+
+            .social-icons a {
+                font-size: clamp(12px, 2vw, 14px);
+                padding: clamp(4px, 1vw, 6px);
+            }
+
+            .hamburger {
+                font-size: clamp(18px, 3.5vw, 20px);
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo img {
+                width: clamp(70px, 15vw, 120px);
+            }
+
+            .nav-links li a {
+                font-size: clamp(12px, 2vw, 14px);
+            }
+
+            .call-btn {
+                font-size: clamp(10px, 2vw, 12px);
+                padding: clamp(5px, 1vw, 7px) clamp(6px, 1.5vw, 10px);
+            }
+        }
+    </style>
+</head>
+
+<body class="dark-scheme">
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+        <div id="de-loader"></div>
+        <div class="top-bar">
+            Welcome To Active Detailing. Best Car Services & Detailing Company in India.
+        </div>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">
+                    <img src="/images/logo-brands/AD-Logo-head.png" alt="Active Detailing Logo" />
+                    <div class="logo-text">
+                        <!-- <span>ACTIVE</span><br/>
+                        <strong>DETAILING</strong> -->
+                    </div>
+                </div>
+                <!-- <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div> -->
+                <ul class="nav-links">
+                    <li><a class="active" href="#">HOME</a></li>
+                    <li><a href="#about">ABOUT US</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#Testimonial">Testimonial</a></li>
+                    <li><a href="#Choose">Why Choose US</a></li>
+                    <li><a href="#FAQ">FAQ</a></li>
+                </ul>
+                <div class="nav-right">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/activedetailingindia"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/activedetailingindia"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@activedetailingstudio"><i class="fab fa-youtube"></i></a>
+                        <a href="https://in.linkedin.com/company/active-detailing"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <a href="tel:1234567890" class="call-btn"><i class="fas fa-phone"></i> CALL US!</a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+        <!-- header end -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+
+            <div id="top"></div>
+
+            <section class="section-dark p-0 text-light jarallax relative v-center" data-video-src="mp4:video/1.mp4">
+                <div class="gradient-edge-bottom h-50"></div>
+                <div class="sw-overlay op-6"></div>
+                <div class="abs w-80 bottom-10 z-2 w-100">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="text-center">
+                                    <h1 class="fs-150 text-uppercase fs-sm-10vw mb-2 lh-1 wow fadeInUp">Luxury Detail</h1>
+
+                                    <p class="mb-0 col-lg-4 offset-lg-4 wow fadeInUp" data-wow-delay=".2s">AutoDetail offers efficient, reliable detailing that restores shine and preserves your vehicle.</p>
+                                    <div class="spacer-single"></div>
+                                    <a class="btn-main btn-line fx-slide wow fadeInUp" data-wow-delay=".4s" href="#"><span>Make Appointment</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="p-0" aria-label="section">
+
+                <div class="container">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-12 wow fadeInUp">
+                            <div class="owl-6 no-alpha owl-carousel owl-theme">
+                                <img src="images/logo-brands/1.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/2.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/3.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/4.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/5.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/6.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/7.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/8.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/9.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/10.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/11.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/12.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/13.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/14.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/15.webp" class="w-100 px-lg-5 p-4" alt="">
+                                <img src="images/logo-brands/16.webp" class="w-100 px-lg-5 p-4" alt="">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="pb-0" id="about">
+                <div class="container relative z-1">
+                    <div class="row g-4 gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <div class="row g-4">
+                                        <div class="col-lg-12">
+                                            <div class=" rounded-1 overflow-hidden wow zoomIn">
+                                                <img src="images/misc/p1.webp" class="w-100 wow scaleIn" alt="">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="row g-4">
+                                        <div class="spacer-single sm-hide"></div>
+                                        
+                                        <div class="col-lg-12">
+                                           <div class=" rounded-1 overflow-hidden wow zoomIn" data-wow-delay=".3s">
+                                                <img src="images/misc/p2.webp" class="w-100 wow scaleIn" alt="" data-wow-delay=".3s">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".4s">Restoring Lasting Shine, Inside and Out</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".6s">At ShinePro, we’re passionate about making every vehicle look its absolute best—inside and out. From restoring showroom-level gloss to deep-cleaning interiors, our expert team delivers flawless results with care and precision.</p>
+                            <a class="btn-main fx-slide wow fadeInUp" href="#services" data-wow-delay=".6s"><span>Read More</span></a>
+                        </div>
+
+                    </div>
+
+                    <div class="spacer-double"></div>
+
+                    <div class="row g-4">
+                        <div class="col-md-3 col-6">
+                            <div class="de_count text-center wow fadeInRight" data-wow-delay=".0s">
+                                <i class="id-color fs-40 d-inline-block mb-3 icofont-briefcase-2"></i>
+                                <h3 class="fs-40 mb-0 lh-1-1"><span class="timer" data-to="65250" data-speed="3000">0</span>+</h3>
+                                Hours of Works
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="de_count text-center wow fadeInRight" data-wow-delay=".2s">
+                                <i class="id-color fs-40 d-inline-block mb-3 icofont-thumbs-up"></i>
+                                <h3 class="fs-40 mb-0 lh-1-1"><span class="timer" data-to="23160" data-speed="3000">0</span>+</h3>
+                                Happy Customers
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="de_count text-center wow fadeInRight" data-wow-delay=".4s">
+                                <i class="id-color fs-40 d-inline-block mb-3 icofont-users-alt-3"></i>
+                                <h3 class="fs-40 mb-0 lh-1-1"><span class="timer" data-to="1500" data-speed="3000">0</span>+</h3>
+                                Experienced Workers
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="de_count text-center wow fadeInRight" data-wow-delay=".6s">
+                                <i class="id-color fs-40 d-inline-block mb-3 icofont-badge"></i>
+                                <h3 class="fs-40 mb-0 lh-1-1"><span class="timer" data-to="20" data-speed="3000">0</span>+</h3>
+                                Years of Experience
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="pb-80 jarallax" aria-label="section">
+                <img src="images/background/3.webp" class="jarallax-img" alt="">
+                <div class="gradient-edge-top"></div>
+                <div class="sw-overlay"></div>
+                <div class="container relative z-2">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-10">
+                            <img src="images/misc/c2.webp" class="w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+      
+        <section id="services" class="bg-dark-2">
+            <div class="container">
+                <div class="row g-4 justify-content-center mb-2">
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                            <div class="subtitle">Welcome to AutoDetail</div>
+                            <h2>Affordable Car Detailing</h2>
+                            <p>From deep interior cleaning to long-lasting ceramic coating, we restore and protect your
+                                vehicle with precision, care, and a commitment to perfection.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+
+                    <!-- service item begin -->
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight"
+                            data-wow-delay=".0s">
+                            <img src="images/services/1.webp" class="hover-scale-1-1 w-100" alt="">
+                            <div class="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                <div class="mb-3">Affordable Car Wash & Detailing using advanced techniques to clean and
+                                    protect your vehicle, ensuring it looks showroom fresh.</div>
+                                <a class="btn-main fx-slide" href="#"><span>View Details</span></a>
+                            </div>
+                            <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">01</h3>
+                            <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                            <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                <h4 class="mb-3">Exterior Hand Wash & Wax</h4>
+                            </div>
+                            <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                        </div>
+                    </div>
+                    <!-- service item end -->
+
+                    <!-- service item begin -->
+                    <!-- <div class="col-lg-4 col-sm-6">
+                            <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight" data-wow-delay=".2s">
+                                <img src="images/services/2.webp" class="hover-scale-1-1 w-100" alt="">
+                                <div class="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                    <div class="mb-3">Interior Deep Cleaning with steam detailing to remove dirt, stains, and odors, restoring your cabin to like-new condition.</div>
+                                    <a class="btn-main fx-slide" href="service-single.html"><span>View Details</span></a>
+                                </div>
+                                <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">02</h3>
+                                <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                                <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                    <h4 class="mb-3">Interior Deep Cleaning</h4>
+                                </div>
+                                <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                            </div>
+                        </div> -->
+                    <!-- service item end -->
+
+                    <!-- service item begin -->
+
+                    <!-- service item end -->
+
+                    <!-- service item begin -->
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight"
+                            data-wow-delay=".6s">
+                            <img src="images/services/4.webp" class="hover-scale-1-1 w-100" alt="">
+                            <div class="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                <div class="mb-3">Ceramic & Graphene Coating for long-lasting protection against
+                                    environmental damage, enhancing shine and ease of maintenance.</div>
+                                <a class="btn-main fx-slide" href="service-single.html"><span>View Details</span></a>
+                            </div>
+                            <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">02</h3>
+                            <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                            <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                <h4 class="mb-3">Ceramic Coating Protection</h4>
+                            </div>
+                            <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                        </div>
+                    </div>
+
+                    <!-- service item end -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight"
+                            data-wow-delay=".8s">
+                            <img src="https://wheelforcestudio.com/wp-content/uploads/2022/09/Ceramic-Coating.jpg"
+                                class="hover-scale-1-1 w-100" alt="">
+                            <div class="abs w-100  px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                <div class="mb-3">Paint Correction to remove scratches and swirls, bringing back the
+                                    perfect finish to your vehicle's paintwork.</div>
+                                <a class="btn-main fx-slide" href="service-single.html"><span>View Details</span></a>
+                            </div>
+                            <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">03</h3>
+                            <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                            <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                <h4 class="mb-3">Paint Correction</h4>
+                            </div>
+                            <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                        </div>
+                    </div>
+                    <!-- service item begin -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight"
+                            data-wow-delay=".8s">
+                            <img src="images/services/5.webp" class="hover-scale-1-1 w-100" alt="">
+                            <div class="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                <div class="mb-3">Engine Bay Detailing to clean and protect your engine compartment,
+                                    improving performance and appearance.</div>
+                                <a class="btn-main fx-slide" href="service-single.html"><span>View Details</span></a>
+                            </div>
+                            <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">04</h3>
+                            <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                            <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                <h4 class="mb-3">Engine Bay Detailing</h4>
+                            </div>
+                            <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                        </div>
+                    </div>
+                    <!-- service item end -->
+
+                    <!-- service item begin -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="hover rounded-1 overflow-hidden relative text-light text-center wow fadeInRight"
+                            data-wow-delay="1.0s">
+                            <img src="images/services/6.webp" class="hover-scale-1-1 w-100" alt="">
+                            <div class="abs w-100 px-4 hover-op-1 z-4 hover-mt-40 abs-centered">
+                                <div class="mb-3">Headlight Restoration to restore clarity and brightness to your
+                                    headlights for better visibility and aesthetics.</div>
+                                <a class="btn-main fx-slide" href="service-single.html"><span>View Details</span></a>
+                            </div>
+                            <h3 class="abs fs-32 lh-1 p-4 top-0 start-0">05</h3>
+                            <div class="abs bg-blur z-2 top-0 w-100 h-100 hover-op-1"></div>
+                            <div class="abs z-2 bottom-0 mb-3 w-100 text-center hover-op-0">
+                                <h4 class="mb-3">Headlight Restoration</h4>
+                            </div>
+                            <div class="gradient-edge-bottom color abs w-100 h-40 bottom-0"></div>
+                        </div>
+                    </div>
+                    <!-- service item end -->
+
+                </div>
+
+            </div>
+        </section>
+
+            <section id="Testimonial">
+                <div class="container">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-4">
+                            <div class="subtitle">Testimonials</div>
+                            <h2>What They Says</h2>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="owl-carousel owl-theme owl-2-dots wow fadeInUp">
+
+                                    <!-- Testimonial 1 -->
+                                    <div class="item">
+                                        <div class="bg-dark-2 rounded-1 p-30">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="w-40px circle me-3" alt="" src="https://activedetailing.in/wp-content/uploads/2023/04/Kamran-Khan-300x300.jpg">
+                                                    <div class="mt-2">
+                                                        <div class="text-white fw-bold lh-1">Kamran Khan</div>
+                                                        <small>Customer</small>
+                                                    </div>
+                                                </div>
+                                                <img src="images/misc/google-icon.svg" class="w-30px" alt="">
+                                            </div>
+                                            <div class="de-rating-ext mb-2">
+                                                <span class="d-stars">
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="ms-2 text-white">5.0</span>
+                                            </div>
+                                            <p>"Active Detailing is hands down the best car detailing service I've ever used. From their meticulous foam wash to the advanced paint protection film, they offer everything my car needs to stay in pristine condition. The team's expertise and dedication to customer satisfaction are evident in every service they provide. I've been a satisfied customer since 2016, and I can't imagine taking my car anywhere else."</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Testimonial 2 -->
+                                    <div class="item">
+                                        <div class="bg-dark-2 rounded-1 p-30">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="w-40px circle me-3" alt="" src="https://activedetailing.in/wp-content/uploads/2023/04/Praveen-Shukla-300x300.jpg">
+                                                    <div class="mt-2">
+                                                        <div class="text-white fw-bold lh-1">Praveen Shukla</div>
+                                                        <small>Customer</small>
+                                                    </div>
+                                                </div>
+                                                <img src="images/misc/google-icon.svg" class="w-30px" alt="">
+                                            </div>
+                                            <div class="de-rating-ext mb-2">
+                                                <span class="d-stars"><i class="fa fa-star"></i><I class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="ms-2 text-white">5.0</span>
+                                            </div>
+                                            <p>"I've been a loyal customer of Active Detailing since 2018, and they have never disappointed me. Their attention to detail is unparalleled, and my car always looks brand new after every visit. I recently tried their ceramic coating service, and the results were outstanding. The team is professional, friendly, and truly passionate about their work. I highly recommend Active Detailing to anyone looking for top-notch car care services."</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Testimonial 3 -->
+                                    <div class="item">
+                                        <div class="bg-dark-2 rounded-1 p-30">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <img class="w-40px circle me-3" alt="" src="https://activedetailing.in/wp-content/uploads/2023/04/Sunil-Saxena-300x300.jpg">
+                                                    <div class="mt-2">
+                                                        <div class="text-white fw-bold lh-1">Sunil Saxena</div>
+                                                        <small>Franchise Owner</small>
+                                                    </div>
+                                                </div>
+                                                <img src="images/misc/google-icon.svg" class="w-30px" alt="">
+                                            </div>
+                                            <div class="de-rating-ext mb-2">
+                                                <span class="d-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="ms-2 text-white">5.0</span>
+                                            </div>
+                                            <p>"As an entrepreneur, joining the Active Detailing franchise was the best decision I ever made. The comprehensive training and ongoing support provided by the company have been exceptional. My business has thrived, thanks to the trusted brand and high-quality services like paint protection film and steam wash. Active Detailing has given me the opportunity to be my own boss and build a successful business in the automotive care industry."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-color text-light pt-60 pb-50">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-md-9">
+                            <h3 class="mb-0 fs-32">Want your car to shine like new again?</h3>
+                        </div>
+                        <div class="col-lg-3 text-lg-end">
+                            <a class="btn-main fx-slide btn-line" href="#"><span>Make Appointment</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-dark text-light">
+                <div class="container relative z-1">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <div class="subtitle id-color">Trusted &amp; Affordable</div>
+                            <h2>Why Choose Our Car Detailing?</h2>
+                            <p>From deep interior cleaning to long-lasting ceramic coating, we restore and protect your vehicle with precision, care, and a commitment to perfection.</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="bg-dark-2 p-40 h-100 rounded-1">
+                                <div class="relative wow fadeInUp">
+                                    <h4>Expert Technicians</h4>
+                                    <p class="mb-0">Our detailers are skilled professionals with years of experience in car care.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="bg-dark-2 p-40 h-100 rounded-1">
+                                <div class="relative wow fadeInUp">
+                                    <h4>Tailored Packages</h4>
+                                    <p class="mb-0">Detailing options customized to your car’s condition and your preferences.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="bg-dark-2 p-40 h-100 rounded-1">
+                                <div class="relative wow fadeInUp">
+                                    <h4>Affordable Pricing</h4>
+                                    <p class="mb-0">Competitive rates with no hidden fees — quality service that fits your budget.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="bg-dark-2 p-40 h-100 rounded-1">
+                                <div class="relative wow fadeInUp">
+                                    <h4>Aftercare Support</h4>
+                                    <p class="mb-0">We provide post-service tips and care advice to keep your car looking sharp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="relative jarallax mh-500" aria-label="section">
+                <div class="gradient-edge-top"></div>
+                <div class="gradient-edge-bottom"></div>
+                <img src="images/background/3.webp" class="jarallax-img" alt="">
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-5">
+                            <div class="subtitle id-color wow fadeInUp" data-wow-delay=".0s">Everything You Need to Know</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Frequently Asked Questions</h2>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <div class="accordion s2 wow fadeInUp">
+                                <div class="accordion-section">
+                                    <div class="accordion-section-title" data-tab="#accordion-a1">
+                                        What is car detailing?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a1">
+                                        Car detailing is a thorough cleaning, restoration, and finishing of a vehicle to produce a show-quality cleanliness and polish, both inside and out.
+                                    </div>
+
+                                    <div class="accordion-section-title" data-tab="#accordion-a2">
+                                        How often should I get my car detailed?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a2">
+                                        It depends on your usage, but most experts recommend detailing every 3–6 months to maintain your car’s appearance and protect its value.
+                                    </div>  
+
+                                    <div class="accordion-section-title" data-tab="#accordion-a3">
+                                        What’s included in a full detailing service?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a3">
+                                        A full detail typically includes exterior wash and polish, interior vacuuming and shampooing, leather conditioning, window cleaning, and engine bay cleaning.
+                                    </div>
+
+                                    <div class="accordion-section-title" data-tab="#accordion-a4">
+                                        Will detailing remove scratches and stains?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a4">
+                                        Light scratches and stains can often be removed through polishing and deep cleaning. Heavier damage may require paint correction or special treatment.
+                                    </div>
+
+                                    <div class="accordion-section-title" data-tab="#accordion-a5">
+                                        How long does a detailing session take?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a5">
+                                        Depending on the vehicle size and service level, a full detailing can take between 2 to 6 hours. We’ll let you know the estimated time during booking.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-dark-2 pt-50 relative no-bottom">
+                <div class="container relative z-2">
+                    <div class="row g-4">
+                        <div class="col-lg-8 offset-lg-2 mb-4 text-center">
+                            <div class="subtitle id-color wow fadeInUp mb-3">Our Instagram</div>
+                            <h2 class="wow fadeInUp">@autodetail_works</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="row g-0">
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/1.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/2.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/3.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/4.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row g-0">
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/5.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/6.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/7.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="#" class="d-block hover relative overflow-hidden text-light">
+                                        <img src="images/gallery-square/8.webp" class="w-100 hover-scale-1-1" alt="">
+                                        <div class="abs abs-centered fs-24 text-white hover-op-0">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- content end -->
+
+        <!-- footer begin -->
+ <!-- footer begin -->
+   <footer>
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-sm-6">
+                    <img src="images/logo-brands/AD-Logo-head.png" class="logo-footer" alt="Active Detailing Studios">
+                    <div class="spacer-20"></div>
+                    <p>Active Detailing Studios is a premier car detailing company offering a range of services,
+                        including car detailing, ceramic coating, Paint Protection Film, and car wash.</p>
+
+                    <div class="social-icons mb-sm-30">
+                        <a href="https://www.facebook.com/activedetailingindia"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://in.linkedin.com/company/active-detailing"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <!-- <a href="https://web.whatsapp.com/send?phone=918447443795"><i
+                                class="fa-brands fa-whatsapp"></i></a> -->
+                        <a href="https://www.instagram.com/activedetailingindia/"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@activedetailingstudio"><i
+                                class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                    <div class="widget">
+                        <h5>Contact Us</h5>
+
+                        <div class="fw-bold text-white">
+                            <i class="icofont-location-pin me-2 id-color"></i>Head Office
+                        </div>
+                        C-31 Sector 63, Noida Uttar Pradesh 201301
+
+                        <div class="spacer-20"></div>
+
+                        <div class="fw-bold text-white">
+                            <i class="icofont-phone me-2 id-color"></i>Call Us
+                        </div>
+                        +91 80101 26126
+
+                        <div class="spacer-20"></div>
+
+                        <div class="fw-bold text-white">
+                            <i class="icofont-envelope me-2 id-color"></i>Email Us
+                        </div>
+                        info@activedetailing.in
+                    </div>
+                </div>
+                  <div class="col-lg-4 col-sm-12 order-lg-2 order-sm-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <iframe width="100%" height="300" style="border:0" loading="lazy" allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=28.631240,77.381298&z=15&output=embed">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+
+        </div>
+
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex">
+                            <div class="de-flex-col">
+                                &copy; 2025 - Active Detailing Studios
+                            </div>
+                            <ul class="menu-simple">
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer end -->
+    </div>
+
+    <!-- overlay content begin -->
+    <div id="extra-wrap" class="text-light">
+        <div id="btn-close">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="extra-content">
+            <img src="images/logo-white.webp" class="w-150px" alt="">
+
+            <div class="spacer-30-line"></div>
+
+            <h5>Our Services</h5>
+            <ul class="ul-check">
+                <li><a href="service-single.html">Exterior Hand Wash & Wax</a></li>
+                <li><a href="service-single.html">Interior Deep Cleaning</a></li>
+                <li><a href="service-single.html">Paint Correction</a></li>
+                <li><a href="service-single.html">Ceramic Coating Protection</a></li>
+                <li><a href="service-single.html">Engine Bay Detailing</a></li>
+                <li><a href="service-single.html">Headlight Restoration</a></li>
+            </ul>
+
+            <div class="spacer-30-line"></div>
+
+            <h5>Contact Us</h5>
+            <div><i class="icofont-clock-time me-2 op-5"></i>Monday - Friday 08.00 - 18.00</div>
+            <div><i class="icofont-location-pin me-2 op-5"></i>123 Shine Street, Los Angeles, CA </div>
+            <div><i class="icofont-envelope me-2 op-5"></i>support@autodetail.com</div>
+
+            <div class="spacer-30-line"></div>
+
+            <h5>About Us</h5>
+            <p>At AutoDetail, we’re dedicated to providing professional, high-quality car detailing services. From
+                routine hand washes to advanced ceramic coatings, we help keep your vehicle looking its best while
+                preserving its value and protecting it from the elements.</p>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/activedetailingindia"><i class="fa-brands fa-facebook-f"></i></a>
+                <!-- <a href="#"><i class="fa-brands fa-x-twitter"></i></a> -->
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-3.js"></script>
+
+    <script src="js/jquery.event.move.js"></script>
+    <script src="js/jquery.twentytwenty.js"></script>
+
+    <script>
+        $(window).on("load", function () {
+            $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({ default_offset_pct: 0.5 });
+            $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({ default_offset_pct: 0.5, orientation: 'vertical' });
+        });
+    </script>
+
+</body>
+
+</html>
