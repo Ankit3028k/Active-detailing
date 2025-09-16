@@ -1681,28 +1681,29 @@
             });
             // owl sync end
 
-        $('.accordion-section-title').on("click", function(e) {
-         var currentAttrvalue = $(this).data('tab');
-         if($(e.target).is('.active')){
-             $(this).removeClass('active');
-             $('.accordion-section-content:visible').slideUp(300);
-         } else {
-             $('.accordion-section-title').removeClass('active').filter(this).addClass('active');
-             $('.accordion-section-content').slideUp(300).filter(currentAttrvalue).slideDown(300);
-         }
+                $('.accordion-section-title').on("click", function(e) {
+            var currentAttrValue = $(this).data('tab');
+            var $currentContent = $(currentAttrValue);
+            var $currentTitle = $(this);
+
+            if ($currentTitle.hasClass('active')) {
+                // If the clicked title is already active, just close it.
+                $currentTitle.removeClass('active');
+                $currentContent.slideUp(300);
+            } else {
+                // Find the parent accordion to scope the changes
+                var $accordion = $currentTitle.closest('.accordion');
+                
+                // Close all other sections within the same accordion
+                $accordion.find('.accordion-section-content').slideUp(300);
+                $accordion.find('.accordion-section-title').removeClass('active');
+                
+                // Open the clicked section
+                $currentTitle.addClass('active');
+                $currentContent.slideDown(300);
+            }
         });
         // cart button & popup end
-    
-        $('.accordion-section-title').on("click", function(e) {
-         var currentAttrvalue = $(this).data('tab');
-         if($(e.target).is('.active')){
-             $(this).removeClass('active');
-             $('.accordion-section-content:visible').slideUp(300);
-         } else {
-             $('.accordion-section-title').removeClass('active').filter(this).addClass('active');
-             $('.accordion-section-content').slideUp(300).filter(currentAttrvalue).slideDown(300);
-         }
-        });
 
         jQuery.each(jQuery('textarea[data-autoresize]'), function() {
             var offset = this.offsetHeight - this.clientHeight;
